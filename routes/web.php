@@ -19,4 +19,13 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
+Route::group(['prefix' => 'posts', 'as' => 'post.'], function (){
+    Route::get('', ['uses' => 'PostController@index', 'as' => 'index']);
+    Route::get('/create', ['uses' => 'PostController@create', 'as' => 'create']);
+    Route::post('/store', ['uses' => 'PostController@store', 'as' => 'store']);
+    Route::get('{slug}', ['uses' => 'PostController@show', 'as' => 'show']);
+});
+
+
+
 Route::get('/home', 'HomeController@index')->name('home');
