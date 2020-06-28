@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Index</h1>
+ @foreach($posts as $post)
+    <a href="{{ route('post.show', $post->slug) }}">{{$post->title}}</a>
+ @endforeach
 @endsection

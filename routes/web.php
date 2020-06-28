@@ -24,6 +24,9 @@ Route::group(['prefix' => 'posts', 'as' => 'post.'], function (){
     Route::get('/create', ['uses' => 'PostController@create', 'as' => 'create']);
     Route::post('/store', ['uses' => 'PostController@store', 'as' => 'store']);
     Route::get('{slug}', ['uses' => 'PostController@show', 'as' => 'show']);
+    Route::get('{slug}/edit', ['uses' => 'PostController@edit', 'as' => 'edit']);
+    Route::put('{post}/update', ['uses' => 'PostController@update', 'as' => 'update']);
+    Route::delete('{post}', ['uses' => 'PostController@delete', 'as' => 'delete']);
 });
 
 
